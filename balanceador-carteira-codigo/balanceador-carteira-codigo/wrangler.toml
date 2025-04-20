@@ -1,0 +1,20 @@
+name = "balanceador-carteira"
+compatibility_date = "2023-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Configuração do banco de dados D1
+[[d1_databases]]
+binding = "DB"                # Nome da variável de ambiente
+database_name = "local-db"    # Nome do banco de dados
+database_id = "local"         # ID para desenvolvimento local
+
+[site]
+bucket = "./.next/static"
+
+[build]
+command = "pnpm run build"
+cwd = "."
+watch_dir = "src"
+
+[env.production]
+workers_dev = true
